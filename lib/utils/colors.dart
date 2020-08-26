@@ -8,5 +8,6 @@ class AppColors {
   Color secondaryColor = Color.fromRGBO(106, 182, 182, 1);
   Color btnGreen = Color.fromRGBO(121, 186, 57, 1);
   Color btnPressed = Color.fromRGBO(62, 126, 126, 1);
+  Color cardColor = Color.fromRGBO(124, 204, 204, 1);
 
 }
