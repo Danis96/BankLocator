@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01980c62-d835-4186-b5e5-7a30a68bc668" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/colors.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/HomePage/page/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/HomePage/page/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/HomePage/widgets/bankCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/HomePage/widgets/bankCard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,6 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
@@ -33,7 +46,7 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -48,6 +61,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="326" y="-942" key="SettingsEditor" timestamp="1598421409721">
+      <screen x="-193" y="-1050" width="1680" height="1050" />
+    </state>
+    <state x="326" y="-942" key="SettingsEditor/0.0.1280.800/-193.-1050.1680.1050@-193.-1050.1680.1050" timestamp="1598421409721" />
     <state x="100" y="123" width="1080" height="512" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1598380433381">
       <screen x="0" y="23" width="1280" height="734" />
     </state>
