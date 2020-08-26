@@ -1,7 +1,7 @@
 import 'package:banklocator/utils/colors.dart';
 import 'package:banklocator/utils/size_config.dart';
 import 'package:banklocator/view-model/home-view-model.dart';
-import 'package:banklocator/view/HomePage/widgets/bankCard.dart';
+import 'package:banklocator/view/listOfBanks/widgets/bankCard.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
