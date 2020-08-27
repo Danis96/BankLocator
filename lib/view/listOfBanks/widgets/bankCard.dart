@@ -1,4 +1,7 @@
 import 'package:banklocator/utils/size_config.dart';
+import 'package:banklocator/view/listOfBanks/widgets/bankAddressCard.dart';
+import 'package:banklocator/view/listOfBanks/widgets/bankIconCard.dart';
+import 'package:banklocator/view/listOfBanks/widgets/bankTitleCard.dart';
 import 'package:flutter/material.dart';
 
 Widget bankCard(
@@ -21,37 +24,17 @@ Widget bankCard(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                  margin:
-                      EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 5),
-                  child: Text(
-                    name,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: SizeConfig.safeBlockHorizontal * 4.5),
-                  )),
-              Container(
-                  margin: EdgeInsets.only(
-                      right: SizeConfig.blockSizeHorizontal * 2),
-                  child: type == 'atm'
-                      ? Image.asset('assets/ic_atm.png')
-                      : Image.asset('assets/ic_branch.png')),
+              bankTitle(name),
+              bankIcon(type),
             ],
           ),
         ),
-        Container(
-//          color: secondaryColor.withOpacity(0.4),
-          height: SizeConfig.blockSizeVertical * 5,
-          margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 5),
-          alignment: Alignment.centerLeft,
-          child: Text(address,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                  fontSize: SizeConfig.safeBlockHorizontal * 4)),
-        )
+       bankAddress(address),
       ],
     ),
   );
 }
+
+
+
+
