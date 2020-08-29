@@ -1,53 +1,41 @@
-import 'package:banklocator/repository/bankApi.dart';
-import 'package:banklocator/repository/getApi.dart';
+import 'package:banklocator/models/bankModel.dart';
+import 'package:banklocator/services/bankApi.dart';
+import 'package:banklocator/services/getApi.dart';
+import 'package:banklocator/services/markerService.dart';
 import 'package:banklocator/utils/colors.dart';
 import 'package:banklocator/utils/size_config.dart';
-import 'package:banklocator/view-model/home-view-model.dart';
 import 'package:banklocator/view-model/listOfBanks-view-model.dart';
-import 'package:banklocator/view/HomePage/widgets/bottomButton.dart';
-import 'package:banklocator/view/listOfBanks/widgets/bankAddressCard.dart';
 import 'package:banklocator/view/listOfBanks/widgets/bankCard.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:getwidget/components/search_bar/gf_search_bar.dart';
-import 'package:http/http.dart' as http;
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 
 String bankApi = BankApi().bankApi;
+var markers;
 
-class ListOfBanksScreen extends StatefulWidget {
-  @override
-  _ListOfBanksScreenState createState() => _ListOfBanksScreenState();
-}
-
-class _ListOfBanksScreenState extends State<ListOfBanksScreen> {
-  Future data;
-  List<dynamic> listaDate;
-
+class ListOfBanksScreen extends StatelessWidget  {
 
   final secondaryColor = AppColors().secondaryColor;
   final dominantColor = AppColors().dominantColor;
   final btnColor = AppColors().btnGreen;
   final cardColor = AppColors().cardColor;
 
-  @override
-  void initState() {
-    super.initState();
-//     data = fetchBanks();
-  }
-
-  printF(BuildContext context) {
-    return print('Danis1');
-  }
-
 
 
   List list = [];
   var finalList = [];
+  List<dynamic> fetchedBanks;
 
   String _selectedItemText = "Our Selection Item";
-  
+
+
   @override
   Widget build(BuildContext context) {
+    final markerService = MarkerService();
+
+
     SizeConfig().init(context);
     return Container(
       child: Container(
@@ -61,14 +49,6 @@ class _ListOfBanksScreenState extends State<ListOfBanksScreen> {
         ),
         child: Scaffold(
           resizeToAvoidBottomPadding: false,
-            bottomNavigationBar: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                BottomButton(btnColor: btnColor, text: 'My location',  function: printF),
-                BottomButton(btnColor: btnColor, text: 'Location',  function: printF),
-                BottomButton(btnColor: btnColor, text: 'List',  function: HomeViewModel().navigateToListOfBanks)
-              ],
-            ),
             backgroundColor: Colors.transparent,
             appBar: AppBar(
               flexibleSpace: Container(
@@ -85,72 +65,81 @@ class _ListOfBanksScreenState extends State<ListOfBanksScreen> {
               centerTitle: true,
             ),
             body:
-            Container(
-              child: Column(
-                children: [
-                 GFSearchBar(
-                        searchList: finalList,
-                        searchQueryBuilder: (query, list) {
-                          return list
-                              .where((item) =>
-                              item.toLowerCase().contains(query.toLowerCase()))
-                              .toList();
-                        },
-                        overlaySearchListItemBuilder: (item) {
-                          return Container(
-                            color: Colors.transparent,
-                            child: Text(
-                              item,
-                              style: const TextStyle(fontSize: 18),
-                            ),
-                          );
-                        },
-                        onItemSelected: (item) {
-                           /// na klik ide na mapu
+            GestureDetector(
+              onTap:  () {
+                FocusScope.of(context).requestFocus(new FocusNode());
+              },
+              child: Container(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                   Container(
+                     child: GFSearchBar(
+                            searchList: list,
+                            searchQueryBuilder: (query, list) {
+                              return list
+                                  .where((item) =>
+                                  item.toLowerCase().contains(query.toLowerCase()))
+                                  .toList();
+                            },
+                            overlaySearchListItemBuilder: (item) {
+                              return Container(
+                                color: Colors.transparent,
+                                child: Text(
+                                  item,
+                                  style: const TextStyle(fontSize: 18),
+                                ),
+                              );
+                            },
+                            onItemSelected: (item) {
+                               /// na klik ide na mapu
+                            },
+                          ),
+                   ),
+                    Container(
+                        child: FutureBuilder(
+                            future: fetchBanks(),
+                            builder: (context, snapshot) {
 
-                        },
-                      ),
-                  Container(
-                      child: FutureBuilder(
-                          future: fetchBanks(),
-                          builder: (context, snapshot) {
-                            if (snapshot.hasData) {
-                              return ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: snapshot.data.length,
-                                  itemBuilder: (BuildContext context, int index) {
-                                    String bankName = snapshot.data[index]['name'];
-                                    list.add(bankName);
-                                    String bankAdress = snapshot.data[index]['address'];
-                                    list.add(bankAdress);
-                                    String type = snapshot.data[index]['type'];
-                                    finalList = [...{...list}];
-                                    return GestureDetector(
-                                      /// open details view
-                                      onTap: () => ListOfBanksViewModel().navigateToDetailsView(context, snapshot.data[index]),
-                                      child: bankCard(context, cardColor, bankName,
-                                          bankAdress, type),
-                                    );
+                              if (snapshot.hasData) {
 
-                                  });
-                            } else if (snapshot.hasError) {
-                              return Text('${snapshot.error}');
-                            }
-                            return CircularProgressIndicator();
-                          })
-                  ),
-                ],
+                                markers = markerService.getMarkers(snapshot.data, context);
+
+                                return ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: snapshot.data.length,
+                                    itemBuilder: (BuildContext context, int index) {
+                                      String bankName = snapshot.data[index]['name'];
+                                      list.add(bankName);
+                                      String bankAdress = snapshot.data[index]['address'];
+                                      list.add(bankAdress);
+                                      String type = snapshot.data[index]['type'];
+                                      ListOfBanksViewModel().fetchLocations(snapshot.data[index]);
+
+//                                    finalList = [...{...list}];
+                                      return GestureDetector(
+                                        /// open details view
+                                        onTap: () => ListOfBanksViewModel().navigateToDetailsView(context, snapshot.data[index]),
+                                        child: bankCard(context, cardColor, bankName,
+                                            bankAdress, type),
+                                      );
+
+                                    });
+                              } else if (snapshot.hasError) {
+                                return Text('${snapshot.error}');
+                              }
+                              return SpinKitThreeBounce(
+                                color: Colors.white,
+                              );
+                            })
+                    ),
+                  ],
+                ),
               ),
             )),
       ),
     );
   }
+
 }
 
-
-class Post {
-  final String title;
-  final String description;
-
-  Post(this.title, this.description);
-}

@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:banklocator/repository/bankApi.dart';
+import 'package:banklocator/models/bankModel.dart';
+import 'package:banklocator/services/bankApi.dart';
 import 'package:http/http.dart' as http;
 
 String bankApi = BankApi().bankApi;

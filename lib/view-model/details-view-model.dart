@@ -2,8 +2,7 @@
 
 
 
-import 'package:banklocator/repository/DetailsViewRepository/detailsRepo.dart';
-import 'package:banklocator/repository/HomeRepository/homeRepo.dart';
+import 'package:banklocator/services/DetailsViewService/detailsRepo.dart';
 import 'package:flutter/material.dart';
 
 class DetailsViewModel {
@@ -27,5 +26,16 @@ class DetailsViewModel {
   phoneLaunch(String phoneBank) {
     return DetailsRepo().launchPhone(phoneBank);
   }
+
+  launchAddress(double lat, lang) {
+    return DetailsRepo().launchLocation(lat, lang);
+  }
+
+  calculateWorkHours(dynamic snapshot) {
+    return DetailsRepo().calculatingStatus(snapshot);
+  }
+
+
+
 
 }

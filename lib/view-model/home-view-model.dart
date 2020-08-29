@@ -1,7 +1,6 @@
 
 
-import 'package:banklocator/repository/HomeRepository/homeRepo.dart';
-import 'package:banklocator/view/listOfBanks/page/listOfBanks.dart';
+import 'package:banklocator/services/HomeService/homeRepo.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewModel {
