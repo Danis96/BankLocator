@@ -1,19 +1,36 @@
 import 'package:banklocator/utils/colors.dart';
+import 'package:banklocator/utils/emptyContainer.dart';
 import 'package:banklocator/utils/size_config.dart';
-import 'package:banklocator/view-model/home-view-model.dart';
-import 'package:banklocator/view/HomePage/widgets/bottomButton.dart';
-import 'package:banklocator/view/listOfBanks/widgets/bankCard.dart';
+import 'package:banklocator/view/ListOfBanks/page/listOfBanks.dart';
+import 'package:banklocator/view/MapView/page/mapView.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
 
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   final secondaryColor = AppColors().secondaryColor;
+
   final dominantColor = AppColors().dominantColor;
+
   final btnColor = AppColors().btnGreen;
 
-  printF(BuildContext context) {
-    return print('Danis1');
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
+
+  List<Widget> pages = [
+       EmptyContainer(),
+       MapPage(),
+       ListOfBanksScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -28,20 +45,37 @@ class Home extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-        bottomNavigationBar: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            BottomButton(btnColor: btnColor, text: 'My location',  function: printF),
-            BottomButton(btnColor: btnColor, text: 'Location',  function: printF),
-            BottomButton(btnColor: btnColor, text: 'List',  function: HomeViewModel().navigateToListOfBanks)
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.white,
+          onTap: _onItemTapped,
+          backgroundColor: btnColor,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.location_on),
+              title: Text('My Location'),
+              backgroundColor: btnColor
+            ),BottomNavigationBarItem(
+              icon: Icon(Icons.location_searching),
+              title: Text('Location'),
+                backgroundColor: btnColor
+            ),BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              title: Text('List'),
+                backgroundColor: btnColor
+            ),
           ],
         ),
+//        Row(
+//          mainAxisAlignment: MainAxisAlignment.spaceAround,
+//          children: [
+//            BottomButton(btnColor: btnColor, text: 'My location',  function: printF),
+//            BottomButton(btnColor: btnColor, text: 'Location',  function: printF),
+//            BottomButton(btnColor: btnColor, text: 'List',  function: HomeViewModel().navigateToListOfBanks)
+//          ],
+//        ),
         backgroundColor: Colors.transparent,
-        body: Container(
-          child: Center(
-            child: Text('Ovdje ide mapa'),
-          ),
-        ),
+        body: Container(child: pages.elementAt(_selectedIndex))
       ),
     );
   }
