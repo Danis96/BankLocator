@@ -1,5 +1,7 @@
+import 'package:banklocator/models/searchModel.dart';
 import 'package:banklocator/services/bankApi.dart';
 import 'package:banklocator/utils/colors.dart';
+import 'package:banklocator/utils/decoration.dart';
 import 'package:banklocator/utils/size_config.dart';
 import 'package:banklocator/view/HomePage/page/home.dart';
 import 'package:banklocator/view/ListOfBanks/widgets/listOfItems.dart';
@@ -24,7 +26,7 @@ class ListOfBanksScreen extends StatelessWidget {
         .push(PageTransition(child: Home(), type: PageTransitionType.fade));
   }
 
-  List list = [];
+  List<SearchModel> list = [];
   String _selectedItemText = "Our Selection Item";
 
   @override
@@ -45,14 +47,7 @@ class ListOfBanksScreen extends StatelessWidget {
             backgroundColor: Colors.transparent,
             appBar: AppBar(
               flexibleSpace: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    tileMode: TileMode.clamp,
-                    colors: [secondaryColor, dominantColor],
-                  ),
-                ),
+                decoration: decoration()
               ),
               title: Text('Mobile Assignment'),
               centerTitle: true,
@@ -65,7 +60,7 @@ class ListOfBanksScreen extends StatelessWidget {
                 child: ListView(
                   shrinkWrap: true,
                   children: [
-                    searchBar(list),
+                    searchBar(list, context),
                      listOfItems(list, goToTheMap, cardColor),
                   ],
                 ),
