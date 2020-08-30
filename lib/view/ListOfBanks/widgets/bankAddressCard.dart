@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 Widget bankAddress(String address) {
   return  Container(
-    height: SizeConfig.blockSizeVertical * 5,
+    height: SizeConfig.blockSizeVertical * 6,
     margin: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 5),
     alignment: Alignment.centerLeft,
     child: Text(address,

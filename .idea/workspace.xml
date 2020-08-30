@@ -21,23 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="01980c62-d835-4186-b5e5-7a30a68bc668" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/BankLocator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BankLocator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/workingDaysModel.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/HomeService/homeRepo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/HomeService/homeRepo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/ListOfBanksService/listOfBanksRepo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/ListOfBanksService/listOfBanksRepo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/locationService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/locationService.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/markerService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/markerService.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view-model/home-view-model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view-model/home-view-model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view-model/listOfBanks-view-model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view-model/listOfBanks-view-model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/DetailsView/page/detailsView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/DetailsView/page/detailsView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view/HomePage/page/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/HomePage/page/home.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/HomePage/widgets/bottomButton.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/ListOfBanks/page/listOfBanks.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/ListOfBanks/page/listOfBanks.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/ListOfBanks/widgets/bankAddressCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/ListOfBanks/widgets/bankAddressCard.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view/MapView/page/mapView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/MapView/page/mapView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
