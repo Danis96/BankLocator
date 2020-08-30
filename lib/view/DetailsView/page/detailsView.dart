@@ -1,16 +1,13 @@
-import 'package:banklocator/models/workingDaysModel.dart';
-import 'package:banklocator/models/workingHoursModel.dart';
 import 'package:banklocator/utils/colors.dart';
+import 'package:banklocator/utils/decoration.dart';
 import 'package:banklocator/utils/emptyContainer.dart';
-import 'package:banklocator/utils/marqueeWidget.dart';
 import 'package:banklocator/utils/size_config.dart';
 import 'package:banklocator/view-model/details-view-model.dart';
 import 'package:banklocator/view/DetailsView/widgets/detailsContainer.dart';
 import 'package:banklocator/view/DetailsView/widgets/headerContainer.dart';
 import 'package:flutter/material.dart';
 
-final secondaryColor = AppColors().secondaryColor;
-final dominantColor = AppColors().dominantColor;
+
 
 
 class DetailsView extends StatelessWidget {
@@ -19,32 +16,19 @@ class DetailsView extends StatelessWidget {
   DetailsView({this.snapshot});
   var firstAddress;
 
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Container(
       child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            tileMode: TileMode.clamp,
-            colors: [secondaryColor, dominantColor],
-          ),
-        ),
+        decoration: decoration(),
         child: Scaffold(
           resizeToAvoidBottomPadding: false,
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             flexibleSpace: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  tileMode: TileMode.clamp,
-                  colors: [secondaryColor, dominantColor],
-                ),
-              ),
+              decoration: decoration(),
             ),
             leading: IconButton(
                 icon: Icon(Icons.arrow_back_ios),
@@ -72,7 +56,6 @@ class DetailsView extends StatelessWidget {
                           : containerDetails(
                               'Work Hours',
                               DetailsViewModel().calculateWorkHours(snapshot),
-//                              snapshot['phone'],
                               'assets/ic_clock.png',
                               context,
                               snapshot)

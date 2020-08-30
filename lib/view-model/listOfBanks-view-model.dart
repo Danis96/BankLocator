@@ -7,8 +7,4 @@ class ListOfBanksViewModel {
     return ListOfBanksRepo().navigateToDetailsView(context, snapshot);
   }
 
-  fetchLocations(dynamic snapshot) {
-     return ListOfBanksRepo().fetchLocation(snapshot);
-  }
-
 }

@@ -11,5 +11,6 @@ class HomeRepo {
     print('Navigation to List');
     Navigator.of(context).push(MaterialPageRoute(builder: (_) => ListOfBanksScreen()));
   }
+  
 
 }

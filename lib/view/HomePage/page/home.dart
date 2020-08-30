@@ -1,9 +1,14 @@
+import 'package:banklocator/services/geolocationService.dart';
 import 'package:banklocator/utils/colors.dart';
-import 'package:banklocator/utils/emptyContainer.dart';
+import 'package:banklocator/utils/decoration.dart';
 import 'package:banklocator/utils/size_config.dart';
+import 'package:banklocator/view/HomePage/widgets/bottomBar.dart';
 import 'package:banklocator/view/ListOfBanks/page/listOfBanks.dart';
 import 'package:banklocator/view/MapView/page/mapView.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+int selectedIndex = 1;
 
 class Home extends StatefulWidget {
 
@@ -12,22 +17,19 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   final secondaryColor = AppColors().secondaryColor;
-
   final dominantColor = AppColors().dominantColor;
-
   final btnColor = AppColors().btnGreen;
-
-  int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
   List<Widget> pages = [
-       EmptyContainer(),
+       MapPage(),
        MapPage(),
        ListOfBanksScreen(),
   ];
@@ -35,48 +37,17 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          tileMode: TileMode.clamp,
-          colors: [secondaryColor, dominantColor],
-        ),
-      ),
+    final locatorService = GeoLocatorService();
+    return FutureProvider(
+        create: (context) => locatorService.getLocation(),
+     child: Container(
+      decoration: decoration(),
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.white,
-          onTap: _onItemTapped,
-          backgroundColor: btnColor,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.location_on),
-              title: Text('My Location'),
-              backgroundColor: btnColor
-            ),BottomNavigationBarItem(
-              icon: Icon(Icons.location_searching),
-              title: Text('Location'),
-                backgroundColor: btnColor
-            ),BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              title: Text('List'),
-                backgroundColor: btnColor
-            ),
-          ],
-        ),
-//        Row(
-//          mainAxisAlignment: MainAxisAlignment.spaceAround,
-//          children: [
-//            BottomButton(btnColor: btnColor, text: 'My location',  function: printF),
-//            BottomButton(btnColor: btnColor, text: 'Location',  function: printF),
-//            BottomButton(btnColor: btnColor, text: 'List',  function: HomeViewModel().navigateToListOfBanks)
-//          ],
-//        ),
+        bottomNavigationBar: bottomBar(selectedIndex, btnColor, _onItemTapped),
         backgroundColor: Colors.transparent,
-        body: Container(child: pages.elementAt(_selectedIndex))
+        body:
+        Container(child: pages.elementAt(selectedIndex))
       ),
-    );
+    ));
   }
 }
