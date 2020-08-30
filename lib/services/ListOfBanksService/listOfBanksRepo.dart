@@ -2,9 +2,7 @@
 
 
 
-import 'package:banklocator/models/locationModel.dart';
 import 'package:banklocator/view/DetailsView/page/detailsView.dart';
-import 'package:banklocator/view/listOfBanks/page/listOfBanks.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -19,14 +17,6 @@ class ListOfBanksRepo {
     )));
   }
 
-
-  fetchLocation(dynamic snapshot) {
-
-//    locations = snapshot['location'].map((data) => Location.fromJson(data)).toList();
-//    print('Locations ' + locations.toString());
-     print(snapshot['location']);
-
-  }
 
 }
 
