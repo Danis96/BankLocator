@@ -36,5 +36,11 @@ Flutter version 1.20.2
   
   
   
-  
+  ## Architecture
+  The application was created according to the MVVM architecture.
+
+  Each view consists of 2 sub folders 1) pages
+                                      2) widgets
+
+  Logic travels from the service / repository, through the view model, to finally reach the view.The main folders within the application are models, views, view   models, services.
   
