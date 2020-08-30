@@ -28,8 +28,10 @@ class _HomeState extends State<Home> {
     });
   }
 
+
   List<Widget> pages = [
-       MapPage(),
+//       MapPage(),
+  MapMy(),
        MapPage(),
        ListOfBanksScreen(),
   ];
