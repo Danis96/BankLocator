@@ -11,7 +11,7 @@ Flutter version 1.20.2
      - Dependency  to create a splash screen.
        I used Splash to beautify the app, and to pick up all the necessary information as soon as the user enters the app.
        
-  2) getwidget: ^1.1.3
+  2) search_page: ^1.3.0
      - A package that speeds up development and contains pre-prepared specific widgets. Used to make the search bar easier to implement.
   
   3) url_launcher: ^5.5.0
