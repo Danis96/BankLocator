@@ -21,10 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="01980c62-d835-4186-b5e5-7a30a68bc668" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view/HomePage/page/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/HomePage/page/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/ListOfBanks/page/listOfBanks.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/ListOfBanks/page/listOfBanks.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view/ListOfBanks/widgets/bankAddressCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/ListOfBanks/widgets/bankAddressCard.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/MapView/page/mapView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/MapView/page/mapView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/ListOfBanks/widgets/listOfItems.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/ListOfBanks/widgets/listOfItems.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/ListOfBanks/widgets/search.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/ListOfBanks/widgets/search.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/SplashScreen/splashScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/SplashScreen/splashScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

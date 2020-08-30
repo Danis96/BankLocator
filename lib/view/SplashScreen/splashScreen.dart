@@ -1,4 +1,3 @@
-import 'package:animated_splash/animated_splash.dart';
 import 'package:banklocator/services/geolocationService.dart';
 import 'package:banklocator/services/getApi.dart';
 import 'package:banklocator/services/markerService.dart';

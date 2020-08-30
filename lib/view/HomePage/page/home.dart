@@ -8,7 +8,7 @@ import 'package:banklocator/view/MapView/page/mapView.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-int selectedIndex = 1;
+ int selectedIndex = 1;
 
 class Home extends StatefulWidget {
 
@@ -30,8 +30,7 @@ class _HomeState extends State<Home> {
 
 
   List<Widget> pages = [
-//       MapPage(),
-  MapMy(),
+       MapMy(),
        MapPage(),
        ListOfBanksScreen(),
   ];
