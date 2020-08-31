@@ -70,14 +70,14 @@ class DetailsRepo {
             DateTime.now().year,
             DateTime.now().month,
             DateTime.now().day,
-            workingHours[i - 1].startHours,
-            workingHours[i - 1].startMinutes);
+            workingHours[i].startHours,
+            workingHours[i].startMinutes);
         final workEndTime = DateTime(
             DateTime.now().year,
             DateTime.now().month,
             DateTime.now().day,
-            workingHours[i - 1].endHours,
-            workingHours[i - 1].endMinutes);
+            workingHours[i].endHours,
+            workingHours[i].endMinutes);
         final currentTime = DateTime.now();
         if (currentTime.isAfter(workStartTime) &&
             currentTime.isBefore(workEndTime)) {
