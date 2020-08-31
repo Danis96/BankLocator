@@ -18,50 +18,46 @@ goToTheMapSearch(dynamic bank, BuildContext context) {
       .push(PageTransition(child: Home(), type: PageTransitionType.fade));
 }
 
-
 Widget searchBar(List<SearchModel> list, BuildContext context) {
-
-
-
   return Container(
-
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10.0),
-      color: Colors.white,
-    ),
-    margin: EdgeInsets.only( top: SizeConfig.blockSizeVertical * 0.5 ,left: SizeConfig.blockSizeHorizontal * 8, right: SizeConfig.blockSizeHorizontal * 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Colors.white,
+      ),
+      margin: EdgeInsets.only(
+          top: SizeConfig.blockSizeVertical * 0.5,
+          left: SizeConfig.blockSizeHorizontal * 8,
+          right: SizeConfig.blockSizeHorizontal * 8),
       child: ListTile(
         leading: Icon(Icons.search),
-        onTap: () =>
-              showSearch(
-                context: context,
-                delegate: SearchPage<SearchModel>(
-                  items: list,
-                  searchLabel: "Search bank's or ATM's",
-                  suggestion: Center(
-                    child: Text("Filter bank's or atm's by name or address"),
-                  ),
-                  barTheme: ThemeData.dark(),
-                  failure: Center(
-                    child: Text("No bank's or ATM's found"),
-                  ),
-                  filter: (bank) => [
-                    bank.name,
-                    bank.address,
-                  ],
-                  builder: (bank) => GestureDetector(
-                    onTap: () {
-                      list = [];
-                      goToTheMapSearch(bank.location, context);
-                    },
-                    child: ListTile(
-                      leading: bankIcon(bank.type),
-                      title: Text(bank.name),
-                      subtitle: Text(bank.address),
-                    ),
-                  ),
-                ),
+        onTap: () => showSearch(
+          context: context,
+          delegate: SearchPage<SearchModel>(
+            items: list,
+            searchLabel: "Search bank's or ATM's",
+            suggestion: Center(
+              child: Text("Filter bank's or atm's by name or address"),
+            ),
+            barTheme: ThemeData.dark(),
+            failure: Center(
+              child: Text("No bank's or ATM's found"),
+            ),
+            filter: (bank) => [
+              bank.name,
+              bank.address,
+            ],
+            builder: (bank) => GestureDetector(
+              onTap: () {
+                list = [];
+                goToTheMapSearch(bank.location, context);
+              },
+              child: ListTile(
+                leading: bankIcon(bank.type),
+                title: Text(bank.name),
+                subtitle: Text(bank.address),
               ),
-        )
-      );
+            ),
+          ),
+        ),
+      ));
 }
